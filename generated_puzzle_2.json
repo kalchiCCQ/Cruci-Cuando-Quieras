@@ -1,0 +1,1077 @@
+{
+  "size": 11,
+  "nodes": 363,
+  "grid": [
+    [
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "B",
+        "number": 1
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 2
+      },
+      {
+        "blocked": false,
+        "letter": "B",
+        "number": 3
+      },
+      {
+        "blocked": false,
+        "letter": "B",
+        "number": 4
+      },
+      {
+        "blocked": false,
+        "letter": "Y",
+        "number": 5
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "G",
+        "number": 6
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": 7
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": 8
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "J",
+        "number": 9
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": 10
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 11
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 12
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": 13
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "G",
+        "number": 14
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": 15
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "G",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 16
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 17
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 18
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "M",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 19
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": 20
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 21
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": 22
+      },
+      {
+        "blocked": false,
+        "letter": "D",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": 23
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": 24
+      },
+      {
+        "blocked": false,
+        "letter": "F",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 25
+      },
+      {
+        "blocked": false,
+        "letter": "D",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": 26
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 27
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": 28
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": 29
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 30
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 31
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "B",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": 32
+      },
+      {
+        "blocked": false,
+        "letter": "G",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 33
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 34
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "M",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "M",
+        "number": 35
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": 36
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": 37
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "J",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 38
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 39
+      },
+      {
+        "blocked": false,
+        "letter": "Z",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      }
+    ]
+  ],
+  "placements": {
+    "down:1": {
+      "row": 0,
+      "col": 1,
+      "direction": "down"
+    },
+    "across:1": {
+      "row": 0,
+      "col": 1,
+      "direction": "across"
+    },
+    "down:2": {
+      "row": 0,
+      "col": 2,
+      "direction": "down"
+    },
+    "down:3": {
+      "row": 0,
+      "col": 3,
+      "direction": "down"
+    },
+    "down:4": {
+      "row": 0,
+      "col": 4,
+      "direction": "down"
+    },
+    "down:5": {
+      "row": 0,
+      "col": 5,
+      "direction": "down"
+    },
+    "across:6": {
+      "row": 0,
+      "col": 8,
+      "direction": "across"
+    },
+    "down:6": {
+      "row": 0,
+      "col": 8,
+      "direction": "down"
+    },
+    "down:7": {
+      "row": 0,
+      "col": 9,
+      "direction": "down"
+    },
+    "down:8": {
+      "row": 0,
+      "col": 10,
+      "direction": "down"
+    },
+    "across:9": {
+      "row": 1,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:9": {
+      "row": 1,
+      "col": 0,
+      "direction": "down"
+    },
+    "down:10": {
+      "row": 1,
+      "col": 6,
+      "direction": "down"
+    },
+    "across:11": {
+      "row": 1,
+      "col": 8,
+      "direction": "across"
+    },
+    "across:12": {
+      "row": 2,
+      "col": 0,
+      "direction": "across"
+    },
+    "across:13": {
+      "row": 2,
+      "col": 5,
+      "direction": "across"
+    },
+    "down:14": {
+      "row": 2,
+      "col": 7,
+      "direction": "down"
+    },
+    "across:15": {
+      "row": 3,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:16": {
+      "row": 3,
+      "col": 4,
+      "direction": "down"
+    },
+    "across:17": {
+      "row": 3,
+      "col": 6,
+      "direction": "across"
+    },
+    "across:18": {
+      "row": 4,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:19": {
+      "row": 4,
+      "col": 5,
+      "direction": "down"
+    },
+    "across:20": {
+      "row": 4,
+      "col": 7,
+      "direction": "across"
+    },
+    "across:21": {
+      "row": 5,
+      "col": 3,
+      "direction": "across"
+    },
+    "down:22": {
+      "row": 5,
+      "col": 6,
+      "direction": "down"
+    },
+    "across:23": {
+      "row": 6,
+      "col": 1,
+      "direction": "across"
+    },
+    "down:23": {
+      "row": 6,
+      "col": 1,
+      "direction": "down"
+    },
+    "down:24": {
+      "row": 6,
+      "col": 2,
+      "direction": "down"
+    },
+    "across:25": {
+      "row": 6,
+      "col": 5,
+      "direction": "across"
+    },
+    "down:26": {
+      "row": 6,
+      "col": 8,
+      "direction": "down"
+    },
+    "down:27": {
+      "row": 6,
+      "col": 9,
+      "direction": "down"
+    },
+    "down:28": {
+      "row": 6,
+      "col": 10,
+      "direction": "down"
+    },
+    "across:29": {
+      "row": 7,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:29": {
+      "row": 7,
+      "col": 0,
+      "direction": "down"
+    },
+    "down:30": {
+      "row": 7,
+      "col": 4,
+      "direction": "down"
+    },
+    "across:31": {
+      "row": 7,
+      "col": 6,
+      "direction": "across"
+    },
+    "across:32": {
+      "row": 8,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:33": {
+      "row": 8,
+      "col": 5,
+      "direction": "down"
+    },
+    "across:34": {
+      "row": 8,
+      "col": 7,
+      "direction": "across"
+    },
+    "across:35": {
+      "row": 9,
+      "col": 0,
+      "direction": "across"
+    },
+    "across:36": {
+      "row": 9,
+      "col": 4,
+      "direction": "across"
+    },
+    "down:37": {
+      "row": 9,
+      "col": 6,
+      "direction": "down"
+    },
+    "across:38": {
+      "row": 10,
+      "col": 0,
+      "direction": "across"
+    },
+    "across:39": {
+      "row": 10,
+      "col": 5,
+      "direction": "across"
+    }
+  },
+  "clues": [
+    {
+      "number": 1,
+      "direction": "across",
+      "clue": "Apodo del legendario Fischer del tablero."
+    },
+    {
+      "number": 6,
+      "direction": "across",
+      "clue": "Brújula digital del siglo XXI."
+    },
+    {
+      "number": 9,
+      "direction": "across",
+      "clue": "Quinto desde el Sol, pero el más grande."
+    },
+    {
+      "number": 11,
+      "direction": "across",
+      "clue": "Capté un olor."
+    },
+    {
+      "number": 12,
+      "direction": "across",
+      "clue": "Componente de palabras como 'bibliotecario'."
+    },
+    {
+      "number": 13,
+      "direction": "across",
+      "clue": "Oscuras como la noche."
+    },
+    {
+      "number": 15,
+      "direction": "across",
+      "clue": "Beatle de los tambores."
+    },
+    {
+      "number": 17,
+      "direction": "across",
+      "clue": "La reina de las arterias."
+    },
+    {
+      "number": 18,
+      "direction": "across",
+      "clue": "Genere inquietud o sobresalto."
+    },
+    {
+      "number": 20,
+      "direction": "across",
+      "clue": "Nave antigua."
+    },
+    {
+      "number": 21,
+      "direction": "across",
+      "clue": "Víbora venenosa legendaria."
+    },
+    {
+      "number": 23,
+      "direction": "across",
+      "clue": "Asiento blando sin respaldo."
+    },
+    {
+      "number": 25,
+      "direction": "across",
+      "clue": "Arrimar una cosa a otra."
+    },
+    {
+      "number": 29,
+      "direction": "across",
+      "clue": "Marca japonesa de relojes y calculadoras."
+    },
+    {
+      "number": 31,
+      "direction": "across",
+      "clue": "Elogie fervorosamente."
+    },
+    {
+      "number": 32,
+      "direction": "across",
+      "clue": "Mascota exótica de sangre fría."
+    },
+    {
+      "number": 34,
+      "direction": "across",
+      "clue": "Vecino histórico de Babilonia."
+    },
+    {
+      "number": 35,
+      "direction": "across",
+      "clue": "Mediterráneo o Egeo."
+    },
+    {
+      "number": 36,
+      "direction": "across",
+      "clue": "Ofensa imperdonable."
+    },
+    {
+      "number": 38,
+      "direction": "across",
+      "clue": "Agarradera de una taza."
+    },
+    {
+      "number": 39,
+      "direction": "across",
+      "clue": "Capa protectora en la atmósfera."
+    },
+    {
+      "number": 1,
+      "direction": "down",
+      "clue": "Cincel para metales."
+    },
+    {
+      "number": 2,
+      "direction": "down",
+      "clue": "Expresa su punto de vista."
+    },
+    {
+      "number": 3,
+      "direction": "down",
+      "clue": "Retrato literario de alguien."
+    },
+    {
+      "number": 4,
+      "direction": "down",
+      "clue": "Bután en internet."
+    },
+    {
+      "number": 5,
+      "direction": "down",
+      "clue": "Símbolo económico nipón."
+    },
+    {
+      "number": 6,
+      "direction": "down",
+      "clue": "Sombrero de visera."
+    },
+    {
+      "number": 7,
+      "direction": "down",
+      "clue": "Soporte culinario imprescindible."
+    },
+    {
+      "number": 8,
+      "direction": "down",
+      "clue": "Cierto corte de una prenda."
+    },
+    {
+      "number": 9,
+      "direction": "down",
+      "clue": "Víctor __, cantautor popular chileno."
+    },
+    {
+      "number": 10,
+      "direction": "down",
+      "clue": "Madre de Poseidón y Zeus."
+    },
+    {
+      "number": 14,
+      "direction": "down",
+      "clue": "Barquero veneciano."
+    },
+    {
+      "number": 16,
+      "direction": "down",
+      "clue": "Organización Mundial de la Salud."
+    },
+    {
+      "number": 19,
+      "direction": "down",
+      "clue": "Exclamación de sorpresa."
+    },
+    {
+      "number": 22,
+      "direction": "down",
+      "clue": "Despistada, distraída."
+    },
+    {
+      "number": 23,
+      "direction": "down",
+      "clue": "Liquidas tus deudas."
+    },
+    {
+      "number": 24,
+      "direction": "down",
+      "clue": "Préstamo con interés exorbitante."
+    },
+    {
+      "number": 26,
+      "direction": "down",
+      "clue": "Sazonan."
+    },
+    {
+      "number": 27,
+      "direction": "down",
+      "clue": "En lugar o parte inferior."
+    },
+    {
+      "number": 28,
+      "direction": "down",
+      "clue": "Impulse la barca."
+    },
+    {
+      "number": 29,
+      "direction": "down",
+      "clue": "El sueño de todo escalador."
+    },
+    {
+      "number": 30,
+      "direction": "down",
+      "clue": "Organización con sede en la Gran Manzana."
+    },
+    {
+      "number": 33,
+      "direction": "down",
+      "clue": "Saludo telefónico."
+    },
+    {
+      "number": 37,
+      "direction": "down",
+      "clue": "Tanzania, en internet."
+    }
+  ]
+}

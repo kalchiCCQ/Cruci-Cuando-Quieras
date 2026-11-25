@@ -1,0 +1,49 @@
+:root { --ink:#101010; --paper:#f5f3ed; --acid:#d8ff48; --line:#a9a69d; --muted:#65635e; }
+* { box-sizing:border-box; }
+html { background:var(--paper); }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:Arial, Helvetica, sans-serif; }
+button, input, textarea { font:inherit; }
+button { color:inherit; cursor:pointer; }
+.nav-shell { min-height:78px; border-bottom:1px solid var(--ink); display:flex; align-items:center; gap:2rem; padding:0 3vw; position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter:blur(12px); }
+.brand { border:0; background:none; font-weight:900; font-size:1.02rem; letter-spacing:-.07em; padding:0; }
+.brand span { color:#e8452e; }
+.nav-shell nav { display:flex; gap:1.15rem; margin-left:auto; }
+.nav-shell nav button, .text-button { border:0; border-bottom:1px solid transparent; padding:.25rem 0; background:none; font-size:.92rem; }
+.nav-shell .nav-active, .text-button:hover { border-color:var(--ink); }
+.edition { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.7rem; letter-spacing:.05em; }
+.creator-shell { min-height:calc(100vh - 78px); padding:6.5vw 3vw 4vw; display:grid; grid-template-columns:minmax(260px, .92fr) minmax(550px, 1.35fr); gap:6vw; }
+.eyebrow { margin:0 0 1rem; text-transform:uppercase; letter-spacing:.11em; font-size:.72rem; font-weight:700; }
+.hero-copy h1, .game-intro h1 { font-size:clamp(3.8rem, 8vw, 8.5rem); line-height:.83; letter-spacing:-.09em; margin:0; font-weight:800; }
+.hero-copy h1 em { font-family:Georgia, serif; font-weight:400; letter-spacing:-.1em; }
+.lede { max-width:31rem; font-size:1.1rem; line-height:1.45; margin-top:2.5rem; }
+.builder-card { align-self:start; border:1px solid var(--ink); background:#fffefa; box-shadow:10px 10px 0 var(--ink); padding:1.25rem; }
+.builder-heading { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; padding-bottom:1.15rem; border-bottom:1px solid var(--ink); font-family:ui-monospace, monospace; font-size:.78rem; text-transform:uppercase; }
+.builder-heading label { display:grid; gap:.3rem; text-align:right; }
+.builder-heading input { width:4.2rem; border:1px solid var(--ink); padding:.35rem; text-align:center; background:var(--acid); }
+.format-note { font-size:.82rem; color:var(--muted); }
+code { font-size:.78rem; background:#eceae3; padding:.1rem .22rem; }
+.entry-columns { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.entry-columns label { display:grid; gap:.5rem; font-size:.86rem; font-weight:700; }
+textarea { min-height:275px; resize:vertical; border:1px solid var(--ink); padding:.7rem; background:#f9f8f4; line-height:1.4; font-size:.82rem; }
+.builder-footer { display:flex; flex-wrap:wrap; align-items:center; gap:1.2rem; margin-top:1.2rem; }
+.primary { border:1px solid var(--ink); background:var(--acid); padding:.8rem 1.15rem; font-weight:700; box-shadow:4px 4px 0 var(--ink); }
+.primary:hover { transform:translate(2px, 2px); box-shadow:2px 2px 0 var(--ink); }
+.status { margin:.8rem 0 0; font-size:.82rem; line-height:1.35; color:var(--muted); }
+.game-shell { min-height:calc(100vh - 78px); padding:4vw 3vw; display:grid; grid-template-columns:minmax(170px, .7fr) minmax(420px, 1.5fr) minmax(170px, .7fr); align-items:center; gap:3vw; }
+.game-intro { align-self:start; }
+.game-intro h1 { font-size:clamp(3rem, 5vw, 5.2rem); margin-bottom:2rem; }
+.clue-panel { align-self:stretch; padding:1rem 0; }
+.clue-panel h2 { font-size:.8rem; text-transform:uppercase; letter-spacing:.1em; margin:0 0 1rem; padding-bottom:.8rem; border-bottom:1px solid var(--ink); }
+.clue-panel ol { list-style:none; padding:0; margin:0; display:grid; gap:.9rem; }
+.clue-panel li { display:grid; grid-template-columns:1.8rem 1fr; gap:.45rem; font-size:.86rem; line-height:1.25; }
+.clue-panel b { color:#e8452e; font-family:ui-monospace, monospace; }
+.board-wrap { width:min(100%, 660px); justify-self:center; }
+.board { display:grid; grid-template-columns:repeat(11, 1fr); aspect-ratio:1; border:2px solid var(--ink); background:var(--ink); gap:1px; }
+.cell { position:relative; min-width:0; border:0; background:#fffefa; display:grid; place-items:center; padding:0; aspect-ratio:1; }
+.cell:hover, .cell.selected { background:var(--acid); outline:2px solid var(--ink); outline-offset:-2px; z-index:1; }
+.cell.blocked { background:var(--ink); }
+.cell small { position:absolute; top:7%; left:9%; font-family:ui-monospace, monospace; font-size:clamp(.45rem, 1vw, .68rem); }
+.cell strong { font-size:clamp(.8rem, 2.2vw, 1.45rem); }
+.keyboard-hint { font-size:.78rem; color:var(--muted); margin:.85rem 0 0; }
+@media (max-width: 900px) { .creator-shell { grid-template-columns:1fr; gap:3rem; } .game-shell { grid-template-columns:1fr; gap:1.5rem; } .game-intro { order:-2; } .clue-panel { border-top:1px solid var(--ink); } .game-shell .clue-panel:last-child { order:2; } }
+@media (max-width: 580px) { .nav-shell { min-height:66px; padding:0 1rem; gap:1rem; } .edition { display:none; } .creator-shell { padding:3rem 1rem; } .entry-columns { grid-template-columns:1fr; } textarea { min-height:160px; } .game-shell { padding:2rem 1rem; } .clue-panel ol { grid-template-columns:1fr 1fr; gap:1rem; } }

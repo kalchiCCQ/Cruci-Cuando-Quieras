@@ -1,0 +1,1077 @@
+{
+  "size": 11,
+  "nodes": 126,
+  "grid": [
+    [
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": 1
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 2
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": 3
+      },
+      {
+        "blocked": false,
+        "letter": "H",
+        "number": 4
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 5
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "M",
+        "number": 6
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 7
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": 8
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 9
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "B",
+        "number": 10
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "H",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 11
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": 12
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 13
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 14
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 15
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "G",
+        "number": 16
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 17
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "V",
+        "number": 18
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": 19
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 20
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 21
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": 22
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": 23
+      },
+      {
+        "blocked": false,
+        "letter": "L",
+        "number": 24
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 25
+      }
+    ],
+    [
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": 26
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 27
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "X",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": 28
+      },
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": 29
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 30
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": 31
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": 32
+      },
+      {
+        "blocked": false,
+        "letter": "P",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "R",
+        "number": 33
+      },
+      {
+        "blocked": false,
+        "letter": "E",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "U",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 34
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "I",
+        "number": 35
+      },
+      {
+        "blocked": false,
+        "letter": "D",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 36
+      },
+      {
+        "blocked": false,
+        "letter": "M",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "D",
+        "number": 37
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 38
+      },
+      {
+        "blocked": false,
+        "letter": "D",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      }
+    ],
+    [
+      {
+        "blocked": false,
+        "letter": "C",
+        "number": 39
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "S",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "A",
+        "number": 40
+      },
+      {
+        "blocked": false,
+        "letter": "N",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "T",
+        "number": null
+      },
+      {
+        "blocked": false,
+        "letter": "O",
+        "number": null
+      },
+      {
+        "blocked": true,
+        "letter": null,
+        "number": null
+      }
+    ]
+  ],
+  "placements": {
+    "down:1": {
+      "row": 0,
+      "col": 1,
+      "direction": "down"
+    },
+    "across:1": {
+      "row": 0,
+      "col": 1,
+      "direction": "across"
+    },
+    "down:2": {
+      "row": 0,
+      "col": 2,
+      "direction": "down"
+    },
+    "down:3": {
+      "row": 0,
+      "col": 3,
+      "direction": "down"
+    },
+    "down:4": {
+      "row": 0,
+      "col": 4,
+      "direction": "down"
+    },
+    "down:5": {
+      "row": 0,
+      "col": 5,
+      "direction": "down"
+    },
+    "across:6": {
+      "row": 0,
+      "col": 7,
+      "direction": "across"
+    },
+    "down:6": {
+      "row": 0,
+      "col": 7,
+      "direction": "down"
+    },
+    "down:7": {
+      "row": 0,
+      "col": 8,
+      "direction": "down"
+    },
+    "down:8": {
+      "row": 0,
+      "col": 9,
+      "direction": "down"
+    },
+    "down:9": {
+      "row": 0,
+      "col": 10,
+      "direction": "down"
+    },
+    "across:10": {
+      "row": 1,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:10": {
+      "row": 1,
+      "col": 0,
+      "direction": "down"
+    },
+    "across:11": {
+      "row": 1,
+      "col": 7,
+      "direction": "across"
+    },
+    "across:12": {
+      "row": 2,
+      "col": 0,
+      "direction": "across"
+    },
+    "across:13": {
+      "row": 2,
+      "col": 3,
+      "direction": "across"
+    },
+    "down:14": {
+      "row": 2,
+      "col": 6,
+      "direction": "down"
+    },
+    "across:15": {
+      "row": 3,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:16": {
+      "row": 3,
+      "col": 2,
+      "direction": "down"
+    },
+    "across:17": {
+      "row": 3,
+      "col": 4,
+      "direction": "across"
+    },
+    "across:18": {
+      "row": 4,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:19": {
+      "row": 4,
+      "col": 3,
+      "direction": "down"
+    },
+    "across:20": {
+      "row": 4,
+      "col": 5,
+      "direction": "across"
+    },
+    "across:21": {
+      "row": 5,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:22": {
+      "row": 5,
+      "col": 4,
+      "direction": "down"
+    },
+    "down:23": {
+      "row": 5,
+      "col": 8,
+      "direction": "down"
+    },
+    "down:24": {
+      "row": 5,
+      "col": 9,
+      "direction": "down"
+    },
+    "down:25": {
+      "row": 5,
+      "col": 10,
+      "direction": "down"
+    },
+    "across:26": {
+      "row": 6,
+      "col": 3,
+      "direction": "across"
+    },
+    "across:27": {
+      "row": 6,
+      "col": 7,
+      "direction": "across"
+    },
+    "across:28": {
+      "row": 7,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:28": {
+      "row": 7,
+      "col": 0,
+      "direction": "down"
+    },
+    "down:29": {
+      "row": 7,
+      "col": 1,
+      "direction": "down"
+    },
+    "down:30": {
+      "row": 7,
+      "col": 2,
+      "direction": "down"
+    },
+    "down:31": {
+      "row": 7,
+      "col": 6,
+      "direction": "down"
+    },
+    "across:32": {
+      "row": 7,
+      "col": 8,
+      "direction": "across"
+    },
+    "across:33": {
+      "row": 8,
+      "col": 0,
+      "direction": "across"
+    },
+    "down:34": {
+      "row": 8,
+      "col": 7,
+      "direction": "down"
+    },
+    "across:35": {
+      "row": 8,
+      "col": 9,
+      "direction": "across"
+    },
+    "across:36": {
+      "row": 9,
+      "col": 0,
+      "direction": "across"
+    },
+    "across:37": {
+      "row": 9,
+      "col": 5,
+      "direction": "across"
+    },
+    "down:38": {
+      "row": 9,
+      "col": 8,
+      "direction": "down"
+    },
+    "across:39": {
+      "row": 10,
+      "col": 0,
+      "direction": "across"
+    },
+    "across:40": {
+      "row": 10,
+      "col": 5,
+      "direction": "across"
+    }
+  },
+  "clues": [
+    {
+      "number": 1,
+      "direction": "across",
+      "clue": "Tiempo de luna y estrellas."
+    },
+    {
+      "number": 6,
+      "direction": "across",
+      "clue": "Raíz andina afrodisíaca."
+    },
+    {
+      "number": 10,
+      "direction": "across",
+      "clue": "Delator sin discreción."
+    },
+    {
+      "number": 11,
+      "direction": "across",
+      "clue": "Trabajan la tierra."
+    },
+    {
+      "number": 12,
+      "direction": "across",
+      "clue": "Abreviatura de 'retuit' en redes sociales."
+    },
+    {
+      "number": 13,
+      "direction": "across",
+      "clue": "Orgulloso hasta la soberbia."
+    },
+    {
+      "number": 15,
+      "direction": "across",
+      "clue": "Ergio (símb.)."
+    },
+    {
+      "number": 17,
+      "direction": "across",
+      "clue": "Barro con aspiraciones artísticas."
+    },
+    {
+      "number": 18,
+      "direction": "across",
+      "clue": "Dirijan la mirada."
+    },
+    {
+      "number": 20,
+      "direction": "across",
+      "clue": "Organización terrorista española."
+    },
+    {
+      "number": 21,
+      "direction": "across",
+      "clue": "Función para entretener."
+    },
+    {
+      "number": 26,
+      "direction": "across",
+      "clue": "Antónimo de 'post'."
+    },
+    {
+      "number": 27,
+      "direction": "across",
+      "clue": "Piedra negra y elegante."
+    },
+    {
+      "number": 28,
+      "direction": "across",
+      "clue": "Estúpido, necio."
+    },
+    {
+      "number": 32,
+      "direction": "across",
+      "clue": "Prefijo griego: 'sobre'."
+    },
+    {
+      "number": 33,
+      "direction": "across",
+      "clue": "Regresa de un viaje al más allá."
+    },
+    {
+      "number": 35,
+      "direction": "across",
+      "clue": "Dirigíos, marchad."
+    },
+    {
+      "number": 36,
+      "direction": "across",
+      "clue": "Deidad egipcia con cabeza de carnero."
+    },
+    {
+      "number": 37,
+      "direction": "across",
+      "clue": "Roto o averiado."
+    },
+    {
+      "number": 39,
+      "direction": "across",
+      "clue": "Algo indefinido pero útil."
+    },
+    {
+      "number": 40,
+      "direction": "across",
+      "clue": "Escribo para recordar."
+    },
+    {
+      "number": 1,
+      "direction": "down",
+      "clue": "Proporcionas sustento."
+    },
+    {
+      "number": 2,
+      "direction": "down",
+      "clue": "Lengua provenzal."
+    },
+    {
+      "number": 3,
+      "direction": "down",
+      "clue": "Sílabas repetidas en 'chachacha'."
+    },
+    {
+      "number": 4,
+      "direction": "down",
+      "clue": "Saludo universal."
+    },
+    {
+      "number": 5,
+      "direction": "down",
+      "clue": "Divertida y cautivadora."
+    },
+    {
+      "number": 6,
+      "direction": "down",
+      "clue": "Lunático, obseso."
+    },
+    {
+      "number": 7,
+      "direction": "down",
+      "clue": "Criba grande para limpiar el trigo en la era."
+    },
+    {
+      "number": 8,
+      "direction": "down",
+      "clue": "Lewis o Sagan."
+    },
+    {
+      "number": 9,
+      "direction": "down",
+      "clue": "Búfalo enano de Indonesia."
+    },
+    {
+      "number": 10,
+      "direction": "down",
+      "clue": "Corto y conciso."
+    },
+    {
+      "number": 14,
+      "direction": "down",
+      "clue": "Escrito que certifica un evento."
+    },
+    {
+      "number": 16,
+      "direction": "down",
+      "clue": "Espacio vacío entre dos cosas."
+    },
+    {
+      "number": 19,
+      "direction": "down",
+      "clue": "Más allá de Urano."
+    },
+    {
+      "number": 22,
+      "direction": "down",
+      "clue": "Herramienta para elevar vehículos."
+    },
+    {
+      "number": 23,
+      "direction": "down",
+      "clue": "Junta, vincula."
+    },
+    {
+      "number": 24,
+      "direction": "down",
+      "clue": "Grasa esencial del cuerpo."
+    },
+    {
+      "number": 25,
+      "direction": "down",
+      "clue": "Hierro que se desmorona."
+    },
+    {
+      "number": 28,
+      "direction": "down",
+      "clue": "Ruido de algo que se quiebra."
+    },
+    {
+      "number": 29,
+      "direction": "down",
+      "clue": "Uno de los fundadores legendarios de Roma."
+    },
+    {
+      "number": 30,
+      "direction": "down",
+      "clue": "Aquellos."
+    },
+    {
+      "number": 31,
+      "direction": "down",
+      "clue": "Alianza militar transatlántica."
+    },
+    {
+      "number": 34,
+      "direction": "down",
+      "clue": "Ciclo que empieza en enero."
+    },
+    {
+      "number": 38,
+      "direction": "down",
+      "clue": "Astato."
+    }
+  ]
+}
