@@ -201,6 +201,7 @@ export default function Home() {
   const [room, setRoom] = useState<Room>();
   const [roomPlayers, setRoomPlayers] = useState<RoomPlayer[]>([]);
   const [roomSolvedWords, setRoomSolvedWords] = useState<Set<string>>(new Set());
+  const [creatingRoom, setCreatingRoom] = useState(false);
   const gameRef = useRef<HTMLElement>(null);
   const previousSolvedWords = useRef<Set<string>>(new Set());
   const completionAttempts = useRef(new Set<string>());
@@ -292,6 +293,8 @@ export default function Home() {
 
   async function createRoom() {
     if (!roomCandidate) return;
+    setCreatingRoom(true);
+    setStatus("Creando sala…");
     try {
       const created = await api("/api/rooms", { method: "POST", body: JSON.stringify({ puzzle: roomCandidate, display_name: "Jugador" }) });
       const createdRoom = created.room as Room;
@@ -309,6 +312,8 @@ export default function Home() {
       setStatus("Sala creada: el enlace quedó copiado.");
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "No se pudo crear la sala.");
+    } finally {
+      setCreatingRoom(false);
     }
   }
 
@@ -547,7 +552,7 @@ export default function Home() {
               <button className="primary play-button" onClick={() => { setIsPlaying(true); requestAnimationFrame(() => gameRef.current?.focus()); }} disabled={isPlaying}>
                 {isPlaying ? "En juego" : "Jugar"}
               </button>
-              {roomCandidate && !room && <button className="text-button" type="button" onClick={() => void createRoom()}>Crear sala y copiar link</button>}
+              {roomCandidate && !room && <button className="text-button" type="button" onClick={() => void createRoom()} disabled={creatingRoom}>{creatingRoom ? "Creando sala…" : "Crear sala y copiar link"}</button>}
               <time className="timer" dateTime={`PT${elapsedSeconds}S`}>{String(Math.floor(elapsedSeconds / 60)).padStart(2, "0")}:{String(elapsedSeconds % 60).padStart(2, "0")}</time>
               {!isPlaying && <span>La grilla se habilita al comenzar.</span>}
             </div>
