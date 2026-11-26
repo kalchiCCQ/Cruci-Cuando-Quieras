@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { accessToken, supabase } from "./supabase";
 
 type Direction = "across" | "down";
 type Cell = { row: number; col: number };
@@ -12,6 +13,8 @@ type Puzzle = {
   placements?: Record<string, { row: number; col: number; direction: Direction }>;
 };
 type Word = { id: string; number: number; direction: Direction; cells: Cell[] };
+type RoomPlayer = { id: string; display_name: string; solved_count: number; finished_at: string | null };
+type Room = { id: string; slug: string; title: string; puzzle: Puzzle };
 
 const demoRows = [
   "#BOBBY##GPS",
@@ -194,8 +197,13 @@ export default function Home() {
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [status, setStatus] = useState("");
   const [puzzle, setPuzzle] = useState<Puzzle>(demoPuzzle);
+  const [roomCandidate, setRoomCandidate] = useState<Puzzle>();
+  const [room, setRoom] = useState<Room>();
+  const [roomPlayers, setRoomPlayers] = useState<RoomPlayer[]>([]);
+  const [roomSolvedWords, setRoomSolvedWords] = useState<Set<string>>(new Set());
   const gameRef = useRef<HTMLElement>(null);
   const previousSolvedWords = useRef<Set<string>>(new Set());
+  const completionAttempts = useRef(new Set<string>());
   const words = useMemo(() => wordsFromPuzzle(puzzle), [puzzle]);
   const clues = useMemo(() => ({
     across: puzzle.clues.filter((clue) => clue.direction === "across").map(({ number, clue }) => [number, clue] as const),
@@ -206,11 +214,12 @@ export default function Home() {
     () => words.find((word) => word.id === activeWordId) ?? words.find((word) => word.direction === direction && word.cells.some((cell) => keyOf(cell) === keyOf(active))) ?? words[0],
     [active, activeWordId, direction, words],
   );
-  const solvedWords = useMemo(() => new Set(words.filter((word) => word.cells.every((cell) => {
+  const locallySolvedWords = useMemo(() => new Set(words.filter((word) => word.cells.every((cell) => {
     const entered = letters[keyOf(cell)] ?? "";
     const solution = puzzle.grid[cell.row][cell.col].letter ?? "";
     return entered === solution;
   })).map((word) => word.id)), [letters, puzzle.grid, words]);
+  const solvedWords = room ? roomSolvedWords : locallySolvedWords;
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -245,6 +254,96 @@ export default function Home() {
     if (activeWord?.direction !== direction) setDirection(activeWord?.direction ?? "across");
   }, [activeWord, direction]);
 
+  async function api(path: string, init: RequestInit = {}) {
+    const token = await accessToken();
+    const response = await fetch(path, {
+      ...init,
+      headers: { "content-type": "application/json", authorization: `Bearer ${token}`, ...init.headers },
+    });
+    const body = await response.json();
+    if (!response.ok) throw new Error(body.detail ?? "No se pudo conectar con la sala.");
+    return body;
+  }
+
+  async function refreshRoomProgress(slug: string) {
+    const progress = await api(`/api/rooms/${slug}/progress`);
+    setRoomPlayers(progress.players);
+  }
+
+  async function joinRoom(slug: string) {
+    try {
+      const joined = await api(`/api/rooms/${slug}/join`, { method: "POST", body: JSON.stringify({ display_name: "Jugador" }) });
+      const joinedRoom = joined.room as Room;
+      setRoom(joinedRoom);
+      setPuzzle(joinedRoom.puzzle);
+      setLetters({});
+      setRoomCandidate(undefined);
+      setRoomSolvedWords(new Set());
+      setActiveWordId(undefined);
+      setIsPlaying(false);
+      setElapsedSeconds(0);
+      setScreen("play");
+      await refreshRoomProgress(slug);
+      setStatus(`Sala ${slug} lista. Compartí el enlace para jugar juntos.`);
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "No se pudo abrir la sala.");
+    }
+  }
+
+  async function createRoom() {
+    if (!roomCandidate) return;
+    try {
+      const created = await api("/api/rooms", { method: "POST", body: JSON.stringify({ puzzle: roomCandidate, display_name: "Jugador" }) });
+      const createdRoom = created.room as Room;
+      setRoom(createdRoom);
+      setPuzzle(createdRoom.puzzle);
+      setLetters({});
+      setRoomSolvedWords(new Set());
+      setActiveWordId(undefined);
+      setIsPlaying(false);
+      setElapsedSeconds(0);
+      const link = `${window.location.origin}${created.join_url}`;
+      await navigator.clipboard?.writeText(link);
+      window.history.replaceState({}, "", created.join_url);
+      await refreshRoomProgress(createdRoom.slug);
+      setStatus("Sala creada: el enlace quedó copiado.");
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "No se pudo crear la sala.");
+    }
+  }
+
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("room");
+    if (slug) void joinRoom(slug);
+  }, []);
+
+  useEffect(() => {
+    const client = supabase;
+    if (!room || !client) return;
+    const channel = client.channel(`room-${room.id}`)
+      .on("postgres_changes", { event: "*", schema: "public", table: "crossword_players", filter: `room_id=eq.${room.id}` }, () => void refreshRoomProgress(room.slug))
+      .on("postgres_changes", { event: "*", schema: "public", table: "crossword_word_completions", filter: `room_id=eq.${room.id}` }, () => void refreshRoomProgress(room.slug))
+      .subscribe();
+    return () => { void client.removeChannel(channel); };
+  }, [room]);
+
+  useEffect(() => {
+    if (!room || !activeWord || solvedWords.has(activeWord.id)) return;
+    const answer = activeWord.cells.map((cell) => letters[keyOf(cell)] ?? "").join("");
+    if (answer.includes(" ")) return;
+    const attemptId = `${activeWord.id}:${answer}`;
+    if (completionAttempts.current.has(attemptId)) return;
+    completionAttempts.current.add(attemptId);
+    void api(`/api/rooms/${room.slug}/complete`, {
+      method: "POST",
+      body: JSON.stringify({ direction: activeWord.direction, clue_number: activeWord.number, answer }),
+    }).then((result) => {
+      if (!result.correct) return;
+      setRoomSolvedWords((current) => new Set(current).add(activeWord.id));
+      void refreshRoomProgress(room.slug);
+    }).catch((error) => setStatus(error instanceof Error ? error.message : "No se pudo validar la palabra."));
+  }, [activeWord, letters, room, solvedWords]);
+
   function selectWord(word: Word) {
     if (!isPlaying) return;
     setActiveWordId(word.id);
@@ -254,6 +353,8 @@ export default function Home() {
   }
 
   function openDemo() {
+    setRoom(undefined);
+    setRoomCandidate(undefined);
     setPuzzle(demoPuzzle);
     setLetters({});
     setIsPlaying(false);
@@ -279,6 +380,8 @@ export default function Home() {
       if (!response.ok) throw new Error(generated.detail ?? generated.error ?? "No se pudo generar el crucigrama.");
       const generatedPuzzle = generated as Puzzle;
       setPuzzle(generatedPuzzle);
+      setRoom(undefined);
+      setRoomCandidate(generatedPuzzle);
       setLetters({});
       setIsPlaying(false);
       setElapsedSeconds(0);
@@ -444,6 +547,7 @@ export default function Home() {
               <button className="primary play-button" onClick={() => { setIsPlaying(true); requestAnimationFrame(() => gameRef.current?.focus()); }} disabled={isPlaying}>
                 {isPlaying ? "En juego" : "Jugar"}
               </button>
+              {roomCandidate && !room && <button className="text-button" type="button" onClick={() => void createRoom()}>Crear sala y copiar link</button>}
               <time className="timer" dateTime={`PT${elapsedSeconds}S`}>{String(Math.floor(elapsedSeconds / 60)).padStart(2, "0")}:{String(elapsedSeconds % 60).padStart(2, "0")}</time>
               {!isPlaying && <span>La grilla se habilita al comenzar.</span>}
             </div>
@@ -469,6 +573,8 @@ export default function Home() {
               }))}
             </div> : <div className="board-preview"><span>Crucigrama listo</span><strong>{puzzle.size} × {puzzle.size}</strong><p>Presioná Jugar para revelar la grilla.</p></div>}
             {isPlaying && <p className="keyboard-hint">Espacio: cambiar dirección · Flecha perpendicular: palabra vecina · Tab: siguiente pista · Shift + Tab: anterior · Borrar: corregir.</p>}
+            {room && <section className="room-status" aria-label="Participantes de la sala"><b>Sala {room.slug}</b><span>{roomPlayers.map((player) => `${player.display_name}: ${player.solved_count}`).join(" · ") || "Esperando jugadores…"}</span></section>}
+            {status && <p className="status" role="status">{status}</p>}
           </div>
           {isPlaying && <CluePanel title="Horizontales" clues={clues.across} direction="across" words={words} activeWord={activeWord} onSelect={selectWord} />}
         </section>

@@ -62,5 +62,7 @@ textarea { min-height:275px; resize:vertical; border:1px solid var(--ink); paddi
 .cell small { position:absolute; top:7%; left:9%; font-family:ui-monospace, monospace; font-size:clamp(.45rem, 1vw, .68rem); }
 .cell strong { font-size:clamp(.8rem, 2.2vw, 1.45rem); }
 .keyboard-hint { font-size:.78rem; color:var(--muted); margin:.85rem 0 0; }
+.room-status { margin-top:.8rem; padding:.7rem .8rem; border:1px solid var(--ink); display:flex; flex-wrap:wrap; gap:.6rem 1rem; font-size:.78rem; background:#eceae3; }
+.room-status b { font-family:ui-monospace, monospace; }
 @media (max-width: 900px) { .creator-shell { grid-template-columns:1fr; gap:3rem; } .game-shell { grid-template-areas:"header header" "board board" "down across"; grid-template-columns:1fr 1fr; gap:1.5rem; } .clue-panel { border-top:1px solid var(--ink); } }
 @media (max-width: 580px) { .nav-shell { min-height:66px; padding:0 1rem; gap:1rem; } .edition { display:none; } .creator-shell { padding:3rem 1rem; } .entry-columns { grid-template-columns:1fr; } textarea { min-height:160px; } .game-shell { padding:2rem 1rem; } .clue-panel ol { grid-template-columns:1fr 1fr; gap:1rem; } }
