@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:python": "python -m unittest -v"
+    "test:python": "python -m unittest -v",
+    "generator": "python -m uvicorn generator_server:app --host 127.0.0.1 --port 8000 --reload"
   },
   "dependencies": {
     "next": "^16.4.6",

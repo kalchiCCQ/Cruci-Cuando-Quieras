@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cruci / Diario",
+  title: "Cruci cuando quieras",
   description: "Crea y juega crucigramas a partir de tus propias pistas.",
 };
 
