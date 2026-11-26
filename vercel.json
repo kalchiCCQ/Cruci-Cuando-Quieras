@@ -9,7 +9,6 @@
       "root": "backend/",
       "framework": "fastapi",
       "entrypoint": "main:app",
-      "maxDuration": 10,
       "excludeFiles": "{test_*.py,sample_input*.json,generated_puzzle*.json}"
     }
   },
