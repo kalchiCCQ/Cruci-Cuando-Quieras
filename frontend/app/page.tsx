@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { accessToken, supabase } from "./supabase";
 
 type Direction = "across" | "down";
@@ -202,6 +203,8 @@ export default function Home() {
   const [roomPlayers, setRoomPlayers] = useState<RoomPlayer[]>([]);
   const [roomSolvedWords, setRoomSolvedWords] = useState<Set<string>>(new Set());
   const [creatingRoom, setCreatingRoom] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string>();
+  const [pendingRoomSlug, setPendingRoomSlug] = useState<string>();
   const gameRef = useRef<HTMLElement>(null);
   const previousSolvedWords = useRef<Set<string>>(new Set());
   const completionAttempts = useRef(new Set<string>());
@@ -256,7 +259,7 @@ export default function Home() {
   }, [activeWord, direction]);
 
   async function api(path: string, init: RequestInit = {}) {
-    const token = await accessToken();
+    const token = await accessToken(captchaToken);
     const response = await fetch(path, {
       ...init,
       headers: { "content-type": "application/json", authorization: `Bearer ${token}`, ...init.headers },
@@ -319,7 +322,11 @@ export default function Home() {
 
   useEffect(() => {
     const slug = new URLSearchParams(window.location.search).get("room");
-    if (slug) void joinRoom(slug);
+    if (slug) {
+      setPendingRoomSlug(slug);
+      setScreen("play");
+      setStatus("Completá el CAPTCHA para entrar a la sala.");
+    }
   }, []);
 
   useEffect(() => {
@@ -549,10 +556,13 @@ export default function Home() {
           {isPlaying && <CluePanel title="Verticales" clues={clues.down} direction="down" words={words} activeWord={activeWord} onSelect={selectWord} />}
           <div className="board-wrap" aria-label="Crucigrama jugable">
             <div className="board-toolbar">
-              <button className="primary play-button" onClick={() => { setIsPlaying(true); requestAnimationFrame(() => gameRef.current?.focus()); }} disabled={isPlaying}>
-                {isPlaying ? "En juego" : "Jugar"}
-              </button>
-              {roomCandidate && !room && <button className="text-button" type="button" onClick={() => void createRoom()} disabled={creatingRoom}>{creatingRoom ? "Creando sala…" : "Crear sala y copiar link"}</button>}
+              {pendingRoomSlug && !room ? <button className="primary play-button" onClick={() => void joinRoom(pendingRoomSlug)}>Entrar a sala</button> : <>
+                <button className="primary play-button" onClick={() => { setIsPlaying(true); requestAnimationFrame(() => gameRef.current?.focus()); }} disabled={isPlaying}>
+                  {isPlaying ? "En juego" : "Jugar"}
+                </button>
+                {roomCandidate && !room && <button className="text-button" type="button" onClick={() => void createRoom()} disabled={creatingRoom}>{creatingRoom ? "Creando sala…" : "Crear sala y copiar link"}</button>}
+              </>}
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !room && <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} onSuccess={setCaptchaToken} onExpire={() => setCaptchaToken(undefined)} options={{ theme: "light", size: "flexible" }} />}
               <time className="timer" dateTime={`PT${elapsedSeconds}S`}>{String(Math.floor(elapsedSeconds / 60)).padStart(2, "0")}:{String(elapsedSeconds % 60).padStart(2, "0")}</time>
               {!isPlaying && <span>La grilla se habilita al comenzar.</span>}
             </div>
