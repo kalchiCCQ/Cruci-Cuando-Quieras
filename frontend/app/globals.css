@@ -34,6 +34,14 @@ textarea { min-height:275px; resize:vertical; border:1px solid var(--ink); paddi
 .game-header .eyebrow { margin:0; }
 .game-header h1 { font-size:clamp(2.3rem, 4vw, 4.5rem); line-height:.9; letter-spacing:-.08em; margin:0 0 .75rem; text-align:right; }
 .game-header > div { text-align:right; }
+.leaderboard { min-width:min(100%, 360px); text-align:left; margin:0 0 .8rem auto; border:1px solid var(--ink); background:#fffefa; }
+.leaderboard h2 { margin:0; padding:.65rem .8rem; border-bottom:1px solid var(--ink); font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; }
+.leaderboard ol { margin:0; padding:0; list-style:none; }
+.leaderboard li { display:grid; grid-template-columns:minmax(90px, 1fr) auto auto; gap:.7rem; align-items:center; padding:.55rem .8rem; border-bottom:1px solid #d7d4cc; font-size:.78rem; }
+.leaderboard li:last-child { border-bottom:0; }
+.leaderboard li b { font-weight:400; color:var(--muted); }
+.leaderboard time { font-family:ui-monospace, monospace; }
+.leaderboard p { margin:0; padding:.7rem .8rem; font-size:.78rem; color:var(--muted); }
 .clue-panel { align-self:center; width:100%; max-height:min(44vh, 360px); overflow-y:auto; overscroll-behavior:contain; padding:1rem 0; scrollbar-width:thin; }
 .clue-panel:nth-of-type(1) { grid-area:down; }
 .clue-panel:nth-of-type(2) { grid-area:across; }

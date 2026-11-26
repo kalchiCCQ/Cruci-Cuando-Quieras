@@ -173,7 +173,26 @@ def room_progress(slug: str, authorization: str | None = Header(default=None)) -
     counts: dict[str, int] = {}
     for completion in completions:
         counts[completion["player_id"]] = counts.get(completion["player_id"], 0) + 1
-    return {"players": [{**player, "solved_count": counts.get(player["id"], 0)} for player in players]}
+    now = datetime.now(timezone.utc)
+    def elapsed(player: dict) -> int | None:
+        if not player.get("started_at"):
+            return None
+        started = datetime.fromisoformat(player["started_at"].replace("Z", "+00:00"))
+        finished_at = player.get("finished_at")
+        ended = datetime.fromisoformat(finished_at.replace("Z", "+00:00")) if finished_at else now
+        return max(0, int((ended - started).total_seconds()))
+    return {"players": [{**player, "solved_count": counts.get(player["id"], 0), "elapsed_seconds": elapsed(player)} for player in players]}
+
+
+@app.post("/api/rooms/{slug}/start")
+def start_room(slug: str, authorization: str | None = Header(default=None)) -> dict:
+    user_id = require_user(authorization)
+    client = supabase_admin()
+    room = room_by_slug(client, slug)
+    player = player_for_room(client, room["id"], user_id, "Jugador")
+    if not player.get("started_at"):
+        player = client.table("crossword_players").update({"started_at": datetime.now(timezone.utc).isoformat()}).eq("id", player["id"]).execute().data[0]
+    return {"player": player}
 
 
 @app.post("/api/rooms/{slug}/complete")
@@ -201,4 +220,10 @@ def complete_word(slug: str, request: CompleteWordRequest, authorization: str | 
     client.table("crossword_word_completions").upsert({
         "room_id": room["id"], "player_id": player["id"], "direction": request.direction, "clue_number": request.clue_number,
     }, on_conflict="player_id,direction,clue_number").execute()
-    return {"correct": True, "completed_at": datetime.now(timezone.utc).isoformat()}
+    completed = client.table("crossword_word_completions").select("clue_number", count="exact").eq("player_id", player["id"]).execute()
+    total_words = len(placements)
+    finished_at = None
+    if completed.count >= total_words:
+        finished_at = datetime.now(timezone.utc).isoformat()
+        client.table("crossword_players").update({"finished_at": finished_at}).eq("id", player["id"]).is_("finished_at", "null").execute()
+    return {"correct": True, "completed_at": datetime.now(timezone.utc).isoformat(), "finished_at": finished_at}

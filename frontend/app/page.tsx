@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
-import { Turnstile } from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { accessToken, supabase } from "./supabase";
 
 type Direction = "across" | "down";
@@ -14,7 +14,7 @@ type Puzzle = {
   placements?: Record<string, { row: number; col: number; direction: Direction }>;
 };
 type Word = { id: string; number: number; direction: Direction; cells: Cell[] };
-type RoomPlayer = { id: string; display_name: string; solved_count: number; finished_at: string | null };
+type RoomPlayer = { id: string; display_name: string; solved_count: number; started_at: string | null; finished_at: string | null; elapsed_seconds: number | null };
 type Room = { id: string; slug: string; title: string; puzzle: Puzzle };
 
 const demoRows = [
@@ -208,6 +208,7 @@ export default function Home() {
   const gameRef = useRef<HTMLElement>(null);
   const previousSolvedWords = useRef<Set<string>>(new Set());
   const completionAttempts = useRef(new Set<string>());
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
   const words = useMemo(() => wordsFromPuzzle(puzzle), [puzzle]);
   const clues = useMemo(() => ({
     across: puzzle.clues.filter((clue) => clue.direction === "across").map(({ number, clue }) => [number, clue] as const),
@@ -259,7 +260,12 @@ export default function Home() {
   }, [activeWord, direction]);
 
   async function api(path: string, init: RequestInit = {}) {
-    const token = await accessToken(captchaToken);
+    const submittedCaptcha = captchaToken;
+    if (submittedCaptcha) {
+      setCaptchaToken(undefined);
+      turnstileRef.current?.reset();
+    }
+    const token = await accessToken(submittedCaptcha);
     const response = await fetch(path, {
       ...init,
       headers: { "content-type": "application/json", authorization: `Bearer ${token}`, ...init.headers },
@@ -317,6 +323,19 @@ export default function Home() {
       setStatus(error instanceof Error ? error.message : "No se pudo crear la sala.");
     } finally {
       setCreatingRoom(false);
+    }
+  }
+
+  async function startGame() {
+    try {
+      if (room) {
+        await api(`/api/rooms/${room.slug}/start`, { method: "POST" });
+        await refreshRoomProgress(room.slug);
+      }
+      setIsPlaying(true);
+      requestAnimationFrame(() => gameRef.current?.focus());
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "No se pudo iniciar la sala.");
     }
   }
 
@@ -550,19 +569,19 @@ export default function Home() {
         <section className="game-shell" ref={gameRef} tabIndex={-1} onKeyDown={onKeyDown}>
           <div className="game-header">
             <p className="eyebrow">Edición de prueba · {puzzle.size} × {puzzle.size}</p>
-            <div><h1>Resolver sin ruido.</h1><button className="text-button" onClick={() => setScreen("create")}>Crear otra grilla</button></div>
+            <div>{room ? <Leaderboard players={roomPlayers} /> : null}<button className="text-button" onClick={() => setScreen("create")}>Crear otra grilla</button></div>
           </div>
 
           {isPlaying && <CluePanel title="Verticales" clues={clues.down} direction="down" words={words} activeWord={activeWord} onSelect={selectWord} />}
           <div className="board-wrap" aria-label="Crucigrama jugable">
             <div className="board-toolbar">
               {pendingRoomSlug && !room ? <button className="primary play-button" onClick={() => void joinRoom(pendingRoomSlug)}>Entrar a sala</button> : <>
-                <button className="primary play-button" onClick={() => { setIsPlaying(true); requestAnimationFrame(() => gameRef.current?.focus()); }} disabled={isPlaying}>
+                <button className="primary play-button" onClick={() => void startGame()} disabled={isPlaying}>
                   {isPlaying ? "En juego" : "Jugar"}
                 </button>
                 {roomCandidate && !room && <button className="text-button" type="button" onClick={() => void createRoom()} disabled={creatingRoom}>{creatingRoom ? "Creando sala…" : "Crear sala y copiar link"}</button>}
               </>}
-              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !room && <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} onSuccess={setCaptchaToken} onExpire={() => setCaptchaToken(undefined)} options={{ theme: "light", size: "flexible" }} />}
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !room && <Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} onSuccess={setCaptchaToken} onExpire={() => setCaptchaToken(undefined)} options={{ theme: "light", size: "flexible" }} />}
               <time className="timer" dateTime={`PT${elapsedSeconds}S`}>{String(Math.floor(elapsedSeconds / 60)).padStart(2, "0")}:{String(elapsedSeconds % 60).padStart(2, "0")}</time>
               {!isPlaying && <span>La grilla se habilita al comenzar.</span>}
             </div>
@@ -588,7 +607,6 @@ export default function Home() {
               }))}
             </div> : <div className="board-preview"><span>Crucigrama listo</span><strong>{puzzle.size} × {puzzle.size}</strong><p>Presioná Jugar para revelar la grilla.</p></div>}
             {isPlaying && <p className="keyboard-hint">Espacio: cambiar dirección · Flecha perpendicular: palabra vecina · Tab: siguiente pista · Shift + Tab: anterior · Borrar: corregir.</p>}
-            {room && <section className="room-status" aria-label="Participantes de la sala"><b>Sala {room.slug}</b><span>{roomPlayers.map((player) => `${player.display_name}: ${player.solved_count}`).join(" · ") || "Esperando jugadores…"}</span></section>}
             {status && <p className="status" role="status">{status}</p>}
           </div>
           {isPlaying && <CluePanel title="Horizontales" clues={clues.across} direction="across" words={words} activeWord={activeWord} onSelect={selectWord} />}
@@ -596,6 +614,14 @@ export default function Home() {
       )}
     </main>
   );
+}
+
+function Leaderboard({ players }: { players: RoomPlayer[] }) {
+  const time = (seconds: number | null) => seconds === null ? "—" : `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+  return <section className="leaderboard" aria-label="Leaderboard">
+    <h2>Leaderboard</h2>
+    {players.length ? <ol>{players.slice().sort((left, right) => (Number(Boolean(right.finished_at)) - Number(Boolean(left.finished_at))) || right.solved_count - left.solved_count).map((player) => <li key={player.id}><span>{player.display_name}</span><b>{player.solved_count} palabras</b><time>{player.finished_at ? time(player.elapsed_seconds) : "En juego"}</time></li>)}</ol> : <p>Esperando jugadores…</p>}
+  </section>;
 }
 
 function CluePanel({ title, clues, direction, words, activeWord, onSelect }: { title: string; clues: readonly (readonly [number, string])[]; direction: Direction; words: Word[]; activeWord?: Word; onSelect: (word: Word) => void }) {
