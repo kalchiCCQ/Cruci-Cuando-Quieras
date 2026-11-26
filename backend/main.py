@@ -70,7 +70,7 @@ def generate_crossword(request: GenerateRequest) -> dict:
 
 def supabase_admin() -> Client:
     url = os.environ.get("SUPABASE_URL")
-    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    key = os.environ.get("SUPABASE_SECRET_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
     if not url or not key:
         raise HTTPException(status_code=503, detail="Las salas todavía no están configuradas.")
     return create_client(url, key)
