@@ -40,7 +40,7 @@ class CrosswordGeneratorTests(unittest.TestCase):
         self.assertEqual(result["size"], 5)
 
     def test_generates_real_dataset_without_a_template(self) -> None:
-        payload = json.loads(Path("sample_input.json").read_text(encoding="utf-8"))
+        payload = json.loads((Path(__file__).parent / "sample_input.json").read_text(encoding="utf-8"))
         self.assertNotIn("template", payload)
         result = CrosswordGenerator.from_payload(payload, max_nodes=1_000_000).generate(timeout_seconds=10)
         self.assertEqual(len(result["placements"]), 44)
@@ -48,7 +48,7 @@ class CrosswordGeneratorTests(unittest.TestCase):
         self.assertEqual(result["grid"][5][0]["letter"], "E")
 
     def test_generates_second_real_dataset_without_a_template(self) -> None:
-        payload = json.loads(Path("sample_input_2.json").read_text(encoding="utf-8"))
+        payload = json.loads((Path(__file__).parent / "sample_input_2.json").read_text(encoding="utf-8"))
         result = CrosswordGenerator.from_payload(payload, max_nodes=1_000_000).generate(timeout_seconds=10)
         self.assertEqual(len(result["placements"]), 44)
         self.assertEqual(result["grid"][0][1]["letter"], "B")

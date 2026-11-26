@@ -1,7 +1,7 @@
 """FastAPI service exposing the crossword generator.
 
 Run locally with:
-    python -m uvicorn generator_server:app --host 127.0.0.1 --port 8000 --reload
+    python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
 """
 
 from __future__ import annotations
@@ -31,12 +31,12 @@ app = FastAPI(
 )
 
 
-@app.get("/health")
+@app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.post("/generate")
+@app.post("/api/generate")
 def generate_crossword(request: GenerateRequest) -> dict:
     try:
         generator = CrosswordGenerator.from_payload(

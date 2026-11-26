@@ -276,7 +276,7 @@ export default function Home() {
         body: JSON.stringify(payload),
       });
       const generated = await response.json();
-      if (!response.ok) throw new Error(generated.error ?? "No se pudo generar el crucigrama.");
+      if (!response.ok) throw new Error(generated.detail ?? generated.error ?? "No se pudo generar el crucigrama.");
       const generatedPuzzle = generated as Puzzle;
       setPuzzle(generatedPuzzle);
       setLetters({});
